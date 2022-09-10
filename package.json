@@ -1,0 +1,50 @@
+{
+    "name": "gutenberg-vite-plugin",
+    "version": "0.1.0",
+    "description": "Gutenberg plugin for Vite.",
+    "keywords": [
+        "gutenberg",
+        "vite",
+        "vite-plugin"
+    ],
+    "homepage": "https://github.com/asolopovas/vite-gutenberg",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/asolopovas/vite-gutenberg"
+    },
+    "license": "MIT",
+    "author": "gutenberg",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "/dist",
+        "/inertia-helpers"
+    ],
+    "scripts": {
+        "build": "npm run build-plugin && npm run build-inertia-helpers",
+        "build-plugin": "rm -rf dist && tsc && cp src/dev-server-index.html dist/",
+        "build-inertia-helpers": "rm -rf inertia-helpers && tsc --project tsconfig.inertia-helpers.json",
+        "lint": "eslint --ext .ts ./src ./tests",
+        "test": "vitest run",
+        "test-watch": "vitest"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.31",
+        "@typescript-eslint/eslint-plugin": "^5.21.0",
+        "@typescript-eslint/parser": "^5.21.0",
+        "eslint": "^8.14.0",
+        "picocolors": "^1.0.0",
+        "typescript": "^4.6.4",
+        "vite": "^3.0.0",
+        "vitest": "^0.12.4"
+    },
+    "peerDependencies": {
+        "vite": "^3.0.0"
+    },
+    "engines": {
+        "node": ">=14"
+    },
+    "dependencies": {
+        "vite-plugin-full-reload": "^1.0.1"
+    }
+}
