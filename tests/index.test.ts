@@ -368,7 +368,11 @@ describe("gutenberg-vite-plugin", () => {
         expect(plugins.length).toBe(2);
         /** @ts-ignore */
         expect(plugins[1].__gutenberg_plugin_config).toEqual({
-            paths: ["src/blocks/**", "src/components/**"],
+            paths: [
+                "app/View/Components/**",
+                "resources/views/**",
+                "routes/**",
+            ],
         });
     });
 

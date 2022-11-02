@@ -322,7 +322,7 @@ function resolvePluginConfig(
     return {
         input: config.input,
         publicDirectory: config.publicDirectory ?? "static",
-        buildDirectory: config.buildDirectory ?? ".",
+        buildDirectory: config.buildDirectory ?? "build",
         ssr: config.ssr ?? config.input,
         ssrOutputDirectory: config.ssrOutputDirectory ?? "bootstrap/ssr",
         refresh: config.refresh ?? false,
@@ -337,10 +337,7 @@ function resolvePluginConfig(
  */
 function resolveBase(config: Required<PluginConfig>, assetUrl: string): string {
     return (
-        assetUrl +
-        (!assetUrl.endsWith("/") ? "/" : "") +
-        config.buildDirectory +
-        "/"
+        assetUrl + (!assetUrl.endsWith("/") ? "/" : "") + config.buildDirectory +  "/"
     );
 }
 
