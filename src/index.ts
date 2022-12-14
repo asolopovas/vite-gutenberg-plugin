@@ -21,40 +21,34 @@ interface PluginConfig {
      * The path or paths of the entry points to compile.
      */
     input: string | string[];
-
     /**
      * gutenberg's public directory.
      *
      * @default 'assets'
      */
     publicDirectory?: string;
-
     /**
      * The public subdirectory where compiled assets should be written.
      *
      * @default 'static'
      */
     buildDirectory?: string;
-
     /**
      * The path to the "hot" file.
      *
      * @default `${publicDirectory}/hot`
      */
     hotFile?: string;
-
     /**
      * The path of the SSR entry point.
      */
     ssr?: string | string[];
-
     /**
      * The directory where the SSR bundle should be written.
      *
      * @default 'bootstrap/ssr'
      */
     ssrOutputDirectory?: string;
-
     /**
      * Configuration for performing full page refresh on blade (or other) file changes.
      *
