@@ -55,6 +55,7 @@ export default {
             }
         };
 
+        outputOptions.inlineDynamicImports = false
         outputOptions.globals = resolveGlobals;
     },
 };

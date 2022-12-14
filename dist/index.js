@@ -58,9 +58,6 @@ function resolvegutenbergPlugin(pluginConfig) {
                     outDir: (_d = (_c = userConfig.build) === null || _c === void 0 ? void 0 : _c.outDir) !== null && _d !== void 0 ? _d : resolveOutDir(pluginConfig, ssr),
                     rollupOptions: {
                         input: (_g = (_f = (_e = userConfig.build) === null || _e === void 0 ? void 0 : _e.rollupOptions) === null || _f === void 0 ? void 0 : _f.input) !== null && _g !== void 0 ? _g : resolveInput(pluginConfig, ssr),
-                        output: {
-                            format: 'iife',
-                        },
                     },
                 },
                 server: {
@@ -200,7 +197,10 @@ function resolvePluginConfig(config) {
  * Resolve the Vite base option from the configuration.
  */
 function resolveBase(config, assetUrl) {
-    return (assetUrl + (!assetUrl.endsWith("/") ? "/" : "") + config.buildDirectory + "/");
+    return (assetUrl +
+        (!assetUrl.endsWith("/") ? "/" : "") +
+        config.buildDirectory +
+        "/");
 }
 /**
  * Resolve the Vite input path from the configuration.

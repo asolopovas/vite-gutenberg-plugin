@@ -45,6 +45,7 @@ exports.default = {
                     .replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
             }
         };
+        outputOptions.inlineDynamicImports = false;
         outputOptions.globals = resolveGlobals;
     },
 };

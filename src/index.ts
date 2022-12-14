@@ -131,9 +131,6 @@ function resolvegutenbergPlugin(
                         input:
                             userConfig.build?.rollupOptions?.input ??
                             resolveInput(pluginConfig, ssr),
-                            output: {
-                                format: 'iife',
-                            },
                     },
                 },
                 server: {
@@ -331,7 +328,10 @@ function resolvePluginConfig(
  */
 function resolveBase(config: Required<PluginConfig>, assetUrl: string): string {
     return (
-        assetUrl + (!assetUrl.endsWith("/") ? "/" : "") + config.buildDirectory +  "/"
+        assetUrl +
+        (!assetUrl.endsWith("/") ? "/" : "") +
+        config.buildDirectory +
+        "/"
     );
 }
 
