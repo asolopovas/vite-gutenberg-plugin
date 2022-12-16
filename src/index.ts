@@ -181,7 +181,7 @@ function resolvegutenbergPlugin(
             const envDir = resolvedConfig.envDir || process.cwd();
             const appUrl =
                 loadEnv(resolvedConfig.mode, envDir, "APP_URL").APP_URL ??
-                "localhost:8888";
+                "undefined";
 
             server.httpServer?.once("listening", () => {
                 const address = server.httpServer?.address();
@@ -197,7 +197,6 @@ function resolvegutenbergPlugin(
                     fs.writeFileSync(pluginConfig.hotFile, viteDevServerUrl);
 
                     setTimeout(() => {
-                        // server.config.logger.info(`\n  ${colors.red(`${colors.bold('gutenberg')} ${gutenbergVersion()}`)}  ${colors.dim('plugin')} ${colors.bold(`v${pluginVersion()}`)}`)
                         server.config.logger.info("");
                         server.config.logger.info(
                             `  ${colors.green("➜")}  ${colors.bold(

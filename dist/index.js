@@ -102,7 +102,7 @@ function resolvegutenbergPlugin(pluginConfig) {
         configureServer(server) {
             var _a, _b;
             const envDir = resolvedConfig.envDir || process.cwd();
-            const appUrl = (_a = (0, vite_1.loadEnv)(resolvedConfig.mode, envDir, "APP_URL").APP_URL) !== null && _a !== void 0 ? _a : "localhost:8888";
+            const appUrl = (_a = (0, vite_1.loadEnv)(resolvedConfig.mode, envDir, "APP_URL").APP_URL) !== null && _a !== void 0 ? _a : "undefined";
             (_b = server.httpServer) === null || _b === void 0 ? void 0 : _b.once("listening", () => {
                 var _a;
                 const address = (_a = server.httpServer) === null || _a === void 0 ? void 0 : _a.address();
@@ -111,7 +111,6 @@ function resolvegutenbergPlugin(pluginConfig) {
                     viteDevServerUrl = resolveDevServerUrl(address, server.config);
                     fs_1.default.writeFileSync(pluginConfig.hotFile, viteDevServerUrl);
                     setTimeout(() => {
-                        // server.config.logger.info(`\n  ${colors.red(`${colors.bold('gutenberg')} ${gutenbergVersion()}`)}  ${colors.dim('plugin')} ${colors.bold(`v${pluginVersion()}`)}`)
                         server.config.logger.info("");
                         server.config.logger.info(`  ${picocolors_1.default.green("➜")}  ${picocolors_1.default.bold("APP_URL")}: ${picocolors_1.default.cyan(appUrl.replace(/:(\d+)/, (_, port) => `:${picocolors_1.default.bold(port)}`))}`);
                     }, 100);
